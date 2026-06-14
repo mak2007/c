@@ -3,181 +3,192 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>₹3 Lakh by Nov 15 — Daily Roadmap</title>
+<title>₹3 Lakh by Nov 15 — Day-wise Checklist</title>
 <style>
   :root{
     --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2a3340;
     --txt:#e6edf3; --muted:#8b949e;
-    --p1:#f59e0b; --p2:#38bdf8; --p3:#34d399; --goal:#a78bfa;
-    --green:#3fb950;
+    --p1:#f59e0b; --p2:#38bdf8; --p3:#34d399; --goal:#a78bfa; --green:#3fb950;
   }
   *{box-sizing:border-box;}
-  body{
-    margin:0; background:var(--bg); color:var(--txt);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    padding:24px;
-  }
-  .wrap{max-width:1000px;margin:0 auto;}
-  h1{font-size:26px;margin:0 0 4px;}
-  .sub{color:var(--muted);margin:0 0 20px;font-size:14px;}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:24px;}
+  .wrap{max-width:920px;margin:0 auto;}
+  h1{font-size:24px;margin:0 0 4px;}
+  .sub{color:var(--muted);margin:0 0 18px;font-size:14px;}
 
-  /* Summary cards */
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px;}
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;}
-  .card .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.5px;}
-  .card .val{font-size:22px;font-weight:700;margin-top:6px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;}
+  .card .label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px;}
+  .card .val{font-size:20px;font-weight:700;margin-top:4px;}
 
-  /* Progress */
-  .progress-wrap{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:20px;}
-  .bar{height:20px;background:#0b0f15;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
-  .bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3));transition:width .8s ease;}
-  .bar-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:8px;}
+  .progress-wrap{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px;}
+  .bar{height:18px;background:#0b0f15;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+  .bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3));transition:width .5s;}
+  .bar-row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px;}
 
-  /* Legend */
-  .legend{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;font-size:13px;}
+  .warn{background:rgba(245,158,11,.12);border:1px solid var(--p1);border-radius:10px;padding:12px 14px;
+    font-size:13px;margin-bottom:18px;color:#f6c668;}
+
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;font-size:12px;}
   .legend span{display:inline-flex;align-items:center;gap:6px;}
-  .dot{width:12px;height:12px;border-radius:3px;display:inline-block;}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block;}
 
-  /* Table */
-  .tbl-wrap{background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-  table{width:100%;border-collapse:collapse;font-size:13px;}
-  thead th{position:sticky;top:0;background:var(--panel2);text-align:left;padding:10px 12px;font-size:12px;
-    text-transform:uppercase;letter-spacing:.4px;color:var(--muted);border-bottom:1px solid var(--border);}
-  tbody td{padding:9px 12px;border-bottom:1px solid #20262e;}
-  tbody tr:hover{background:#1a2029;}
-  .phase-pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;}
-  .amt{font-variant-numeric:tabular-nums;font-weight:600;text-align:right;}
-  th.amt{text-align:right;}
-  .milestone{background:rgba(167,139,250,.12);}
-  .week-start td{border-top:2px solid var(--border);}
-  .scroll{max-height:560px;overflow:auto;}
+  .week{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .week-head{background:var(--panel2);padding:10px 14px;font-size:13px;font-weight:600;display:flex;
+    justify-content:space-between;align-items:center;cursor:pointer;}
+  .week-head .wk-bal{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;}
+  .day{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-top:1px solid #20262e;font-size:13px;}
+  .day input{margin-top:3px;width:16px;height:16px;accent-color:var(--green);cursor:pointer;flex:none;}
+  .day .d-date{width:64px;flex:none;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .day .d-pill{flex:none;width:26px;text-align:center;font-size:10px;font-weight:700;border-radius:6px;padding:1px 0;}
+  .day .d-task{flex:1;}
+  .day .d-amt{flex:none;font-variant-numeric:tabular-nums;font-weight:600;width:88px;text-align:right;}
+  .day.done .d-task{text-decoration:line-through;opacity:.5;}
+  .day.milestone{background:rgba(167,139,250,.10);}
+  .controls{display:flex;gap:10px;margin-bottom:16px;}
+  button{background:var(--panel2);color:var(--txt);border:1px solid var(--border);border-radius:8px;
+    padding:8px 14px;font-size:13px;cursor:pointer;}
+  button:hover{border-color:var(--muted);}
   .note{color:var(--muted);font-size:12px;margin-top:14px;line-height:1.6;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>🎯 ₹3,00,000 by Nov 15 — Daily Roadmap</h1>
-  <p class="sub">Start: ₹2,000 on Jun 15 &nbsp;·&nbsp; Engine: trading bootstrap → Scheme 2 compounding → salary fuel</p>
+  <h1>✅ ₹3,00,000 by Nov 15 — Day-wise Checklist</h1>
+  <p class="sub">Start ₹2,000 (Jun 15) · Trading bootstrap → Scheme 2 compounding · Salary: +₹10k Sep 30, +₹20k Oct 30</p>
 
   <div class="cards">
-    <div class="card"><div class="label">Start capital</div><div class="val">₹2,000</div></div>
     <div class="card"><div class="label">Goal</div><div class="val">₹3,00,000</div></div>
-    <div class="card"><div class="label">Entry ticket day</div><div class="val" id="c-entry">–</div></div>
+    <div class="card"><div class="label">Entry ticket</div><div class="val" id="c-entry">–</div></div>
     <div class="card"><div class="label">Goal-hit day</div><div class="val" id="c-goal">–</div></div>
-    <div class="card"><div class="label">Total days</div><div class="val" id="c-days">–</div></div>
+    <div class="card"><div class="label">Tasks done</div><div class="val" id="c-done">0 / 0</div></div>
   </div>
 
   <div class="progress-wrap">
-    <div style="font-size:13px;color:var(--muted);margin-bottom:8px;">Projected progress to ₹3L</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:8px;">Checklist completion</div>
     <div class="bar"><div class="bar-fill" id="bar"></div></div>
     <div class="bar-row"><span>Jun 15</span><span id="bar-label">0%</span><span>Nov 15</span></div>
   </div>
 
+  <div class="warn">⚠️ Tight timeline: goal lands ~Nov 13, only ~2 days before deadline. Hitting the ₹10,500 entry ticket by ~Jul 22 is critical — any slip in the trading phase risks missing Nov 15.</div>
+
   <div class="legend">
-    <span><i class="dot" style="background:var(--p1)"></i> Phase 1 · Trading bootstrap (~18%/wk)</span>
-    <span><i class="dot" style="background:var(--p2)"></i> Phase 2 · Scheme 2 seed (1.23x→1.21x/wk)</span>
-    <span><i class="dot" style="background:var(--p3)"></i> Phase 3 · Scheme 2 + salary (₹15k/mo)</span>
+    <span><i class="dot" style="background:var(--p1)"></i> P1 · Trading bootstrap (~18%/wk)</span>
+    <span><i class="dot" style="background:var(--p2)"></i> P2 · Scheme 2 seed (1.23x)</span>
+    <span><i class="dot" style="background:var(--p3)"></i> P3 · Scheme 2 compounding (1.21x)</span>
     <span><i class="dot" style="background:var(--goal)"></i> Milestone</span>
   </div>
 
-  <div class="tbl-wrap">
-    <div class="scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th><th>Date</th><th>Phase</th>
-            <th class="amt">Target balance</th><th>Daily action / source</th>
-          </tr>
-        </thead>
-        <tbody id="rows"></tbody>
-      </table>
-    </div>
+  <div class="controls">
+    <button id="reset">Reset progress</button>
+    <button id="today">Jump to today</button>
   </div>
 
+  <div id="weeks"></div>
+
   <p class="note">
-    <strong>How the targets are computed:</strong> Phase 1 grows the account ~2.4%/day (≈18%/week) and adds ₹3,000 on Jun 25, until it crosses the ₹10,500 Scheme 2 entry ticket.
-    From there it compounds at the Scheme 2 daily-equivalent rate (first week ≈3.0%/day for the 1.23x cycle, then ≈2.76%/day for 1.21x cycles).
-    From Aug 15 the job adds ≈₹500/day (₹15k/month) of fresh fuel.
-    These are <em>targets</em> — if real trading is slower or the Scheme 2 cycle isn't weekly, the dates shift.
+    <strong>Daily targets</strong> are computed from the plan: Phase 1 grows the account ~2.4%/day (≈18%/wk) plus ₹3,000 on Jun 25, until it crosses the ₹10,500 Scheme 2 ticket (~Jul 22).
+    Then it compounds at the Scheme 2 daily-equivalent (~3.0%/day for the first 1.23x cycle, ~2.76%/day after for 1.21x). Salary lands as lump sums: +₹10,000 on Sep 30, +₹20,000 on Oct 30.
+    Check off each day as you hit the target. Progress saves in your browser.
   </p>
 </div>
 
 <script>
 (function(){
-  // ---- Plan parameters ----
-  const start = new Date(2026,5,15);      // Jun 15
-  const end   = new Date(2026,10,15);     // Nov 15
-  const GOAL = 300000;
-  const ENTRY = 10500;                    // Scheme 2 min ticket
-  const tradeDaily = 0.0239;              // ~18%/week
-  const schemeFirst = 0.0302;             // 1.23x weekly first cycle
-  const schemeDaily = 0.0276;             // 1.21x weekly after
-  const salaryStart = new Date(2026,7,15);// Aug 15
-  const salaryPerDay = 500;               // ~15k/month
+  const start=new Date(2026,5,15), end=new Date(2026,10,15);
+  const GOAL=300000, ENTRY=10500, td=0.0239, sf=0.0302, sd=0.0276;
+  const fmt=n=>"₹"+Math.round(n).toLocaleString("en-IN");
+  const dstr=d=>d.toLocaleDateString("en-IN",{day:"2-digit",month:"short"});
+  const same=(a,b)=>a.getDate()===b.getDate()&&a.getMonth()===b.getMonth();
+  const KEY="roadmap_checklist_v2";
 
-  const fmt = n => "₹" + Math.round(n).toLocaleString("en-IN");
-  const dstr = d => d.toLocaleDateString("en-IN",{day:"2-digit",month:"short"});
-  const sameDay = (a,b)=>a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate();
-
-  let bal = 2000;
-  let inScheme = false, firstSchemeWeek = 0, entered = null, goalDay = null;
-  const rows = [];
-  let day = 0;
+  let bal=2000,inS=false,fw=0,ent=null,goal=null,day=0;
+  const days=[];
   for(let d=new Date(start); d<=end; d.setDate(d.getDate()+1)){
-    day++;
-    const date = new Date(d);
-    let phase, color, action;
+    day++; const date=new Date(d); let phase,color,task,inj=0;
+    if(same(date,new Date(2026,5,25))){bal+=3000;inj=3000;}
+    if(same(date,new Date(2026,8,30))){bal+=10000;inj=10000;}
+    if(same(date,new Date(2026,9,30))){bal+=20000;inj=20000;}
 
-    // add the 3000 on Jun 25
-    if(sameDay(date,new Date(2026,5,25))) bal += 3000;
-
-    if(!inScheme){
-      // Phase 1: trading
-      if(day>1) bal *= (1+tradeDaily);
-      phase=1; color="var(--p1)";
-      action = sameDay(date,new Date(2026,5,25)) ? "Trade + ₹3,000 received" : "Trade account up ~2.4%";
-      if(bal>=ENTRY){ inScheme=true; entered=new Date(date); action="Cross ₹10,500 → enter Scheme 2"; }
+    if(!inS){
+      if(day>1) bal*=(1+td);
+      phase=1;color="var(--p1)";
+      task="Trade account up ~2.4%"+(inj?` + ₹${inj.toLocaleString("en-IN")} credited`:"");
+      if(bal>=ENTRY){inS=true;ent=new Date(date);task="🎫 Cross ₹10,500 → ENTER Scheme 2 (first $100 block)";}
     } else {
-      firstSchemeWeek++;
-      const rate = firstSchemeWeek<=7 ? schemeFirst : schemeDaily;
-      bal *= (1+rate);
-      const hasSalary = date>=salaryStart;
-      if(hasSalary) bal += salaryPerDay;
-      if(firstSchemeWeek<=7){ phase=2; color="var(--p2)"; action="Scheme 2 — 1.23x cycle compounding"; }
-      else { phase=3; color="var(--p3)"; action= hasSalary ? "Scheme 2 1.21x + ₹500 salary fuel" : "Scheme 2 — 1.21x cycle compounding"; }
+      fw++; const r=fw<=7?sf:sd; bal*=(1+r);
+      if(inj) bal+=0; // already added above
+      if(fw<=7){phase=2;color="var(--p2)";task="Scheme 2 — reinvest, 1.23x cycle";}
+      else{phase=3;color="var(--p3)";task="Scheme 2 — reinvest in $100 blocks, 1.21x cycle";}
+      if(inj) task+=` + ₹${inj.toLocaleString("en-IN")} salary in`;
     }
-
-    if(!goalDay && bal>=GOAL) goalDay=new Date(date);
-    rows.push({day,date:new Date(date),phase,color,bal,action,
-               milestone: (goalDay && sameDay(date,goalDay)) || (entered && sameDay(date,entered))});
+    if(!goal && bal>=GOAL){goal=new Date(date);task="🎯 HIT ₹3,00,000 — withdraw & lock the goal";}
+    days.push({day,date:new Date(date),phase,color,bal,task,
+               milestone:(goal&&same(date,goal))||(ent&&same(date,ent))});
   }
 
-  // ---- Summary ----
-  document.getElementById("c-entry").textContent = entered ? dstr(entered) : "–";
-  document.getElementById("c-goal").textContent  = goalDay ? dstr(goalDay) : "Not reached";
-  document.getElementById("c-days").textContent  = goalDay ? Math.round((goalDay-start)/864e5)+" days" : rows.length+" days";
+  document.getElementById("c-entry").textContent = ent?dstr(ent):"–";
+  document.getElementById("c-goal").textContent  = goal?dstr(goal):"Not reached";
 
-  const finalBal = rows[rows.length-1].bal;
-  const pct = Math.min(100, Math.round((Math.max(...rows.map(r=>r.bal))/GOAL)*100));
-  setTimeout(()=>{ document.getElementById("bar").style.width = pct+"%"; },200);
-  document.getElementById("bar-label").textContent = pct+"% (peak ₹" + Math.round(Math.max(...rows.map(r=>r.bal))).toLocaleString("en-IN") + ")";
+  // group by week
+  const weeksMap={};
+  days.forEach(r=>{const wk=Math.floor((r.date-start)/(7*864e5));(weeksMap[wk]=weeksMap[wk]||[]).push(r);});
 
-  // ---- Render rows ----
-  const tbody = document.getElementById("rows");
-  let lastWeek = -1;
-  rows.forEach(r=>{
-    const tr = document.createElement("tr");
-    const wk = Math.floor((r.date-start)/(7*864e5));
-    if(wk!==lastWeek){ tr.classList.add("week-start"); lastWeek=wk; }
-    if(r.milestone) tr.classList.add("milestone");
-    tr.innerHTML =
-      `<td>${r.day}</td>`+
-      `<td>${dstr(r.date)}</td>`+
-      `<td><span class="phase-pill" style="background:${r.color}22;color:${r.color};">P${r.phase}</span></td>`+
-      `<td class="amt">${fmt(r.bal)}</td>`+
-      `<td>${r.action}</td>`;
-    tbody.appendChild(tr);
+  let saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||"{}");}catch(e){}
+
+  const weeksEl=document.getElementById("weeks");
+  Object.keys(weeksMap).forEach(wk=>{
+    const list=weeksMap[wk];
+    const wkEl=document.createElement("div"); wkEl.className="week";
+    const endBal=list[list.length-1].bal;
+    wkEl.innerHTML=`<div class="week-head"><span>Week ${+wk+1} · ${dstr(list[0].date)} – ${dstr(list[list.length-1].date)}</span><span class="wk-bal">target ${fmt(endBal)}</span></div>`;
+    list.forEach(r=>{
+      const id="d"+r.day;
+      const row=document.createElement("label");
+      row.className="day"+(r.milestone?" milestone":"")+(saved[id]?" done":"");
+      row.innerHTML=
+        `<input type="checkbox" data-id="${id}" ${saved[id]?"checked":""}>`+
+        `<span class="d-date">${dstr(r.date)}</span>`+
+        `<span class="d-pill" style="background:${r.color}22;color:${r.color};">P${r.phase}</span>`+
+        `<span class="d-task">${r.task}</span>`+
+        `<span class="d-amt">${fmt(r.bal)}</span>`;
+      wkEl.appendChild(row);
+    });
+    weeksEl.appendChild(wkEl);
   });
+
+  const total=days.length;
+  function refresh(){
+    const done=Object.values(saved).filter(Boolean).length;
+    document.getElementById("c-done").textContent=done+" / "+total;
+    const pct=Math.round(done/total*100);
+    document.getElementById("bar").style.width=pct+"%";
+    document.getElementById("bar-label").textContent=pct+"%";
+  }
+  refresh();
+
+  weeksEl.addEventListener("change",e=>{
+    if(e.target.type!=="checkbox")return;
+    const id=e.target.dataset.id;
+    saved[id]=e.target.checked;
+    e.target.closest(".day").classList.toggle("done",e.target.checked);
+    localStorage.setItem(KEY,JSON.stringify(saved));
+    refresh();
+  });
+
+  document.getElementById("reset").onclick=()=>{
+    if(confirm("Clear all checkmarks?")){saved={};localStorage.removeItem(KEY);
+      document.querySelectorAll(".day input").forEach(c=>{c.checked=false;c.closest(".day").classList.remove("done");});refresh();}
+  };
+  document.getElementById("today").onclick=()=>{
+    const now=new Date();
+    const match=days.find(r=>same(r.date,now));
+    if(match){const el=[...document.querySelectorAll(".d-date")].find(e=>e.textContent===dstr(match.date));
+      if(el)el.scrollIntoView({behavior:"smooth",block:"center"});}
+    else alert("Today is outside the Jun 15 – Nov 15 plan window.");
+  };
 })();
 </script>
 </body>
